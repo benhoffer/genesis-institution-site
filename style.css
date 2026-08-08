@@ -529,10 +529,112 @@ section h2 {
   color: var(--mid);
 }
 
-.donate-note {
-  font-size: 0.9rem !important;
-  color: var(--mid) !important;
-  margin-bottom: 2rem !important;
+.btn-outline {
+  display: inline-block;
+  background: transparent;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 0.65rem 1.5rem;
+  border-radius: 4px;
+  border: 1.5px solid var(--accent);
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-outline:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.donate-ways {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.donate-way {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--white);
+}
+
+.donate-way:last-child {
+  border-bottom: none;
+}
+
+.donate-way-primary {
+  background: #f8fbf9;
+}
+
+details.donate-way {
+  display: block;
+  padding: 0;
+}
+
+details.donate-way summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.5rem 2rem;
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+details.donate-way summary::-webkit-details-marker { display: none; }
+
+.donate-way-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.donate-way-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.donate-way-desc {
+  font-size: 0.88rem;
+  color: var(--mid);
+}
+
+.donate-way-toggle {
+  font-size: 1.4rem;
+  color: var(--mid);
+  line-height: 1;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+details[open].donate-way .donate-way-toggle {
+  transform: rotate(45deg);
+}
+
+.donate-way-expanded {
+  padding: 0.25rem 2rem 1.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.donate-way-expanded p {
+  font-size: 0.95rem !important;
+  color: #374151 !important;
+  margin: 0 !important;
+}
+
+.donate-way-expanded a {
+  color: var(--accent);
+  text-decoration: underline;
 }
 
 /* FOOTER */
@@ -578,6 +680,8 @@ footer {
   .two-col { grid-template-columns: 1fr; gap: 0; }
   .pillars { grid-template-columns: 1fr; }
   .donate-tiers { grid-template-columns: 1fr; }
+  div.donate-way { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  details.donate-way summary { gap: 1rem; }
   .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
   .program { grid-template-columns: 1fr; }
   .program-media { min-height: 220px; }
