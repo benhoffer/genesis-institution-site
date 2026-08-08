@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Genesis Institution</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=14" />
 </head>
 <body>
 
@@ -22,7 +22,11 @@
       <p class="header-label">Research for the future of freedom</p>
       <h1>A say in how the world is governed.<br>A world worth governing.</h1>
       <p class="header-sub">The Genesis Institution is a research nonprofit working at the intersection of political and environmental security.</p>
-      <a href="#donate" class="btn-primary">Support our work</a>
+      <div class="header-actions">
+        <a href="#donate" class="btn-primary">Support our work</a>
+        <a href="mailto:benhoffer0@gmail.com?subject=Getting involved with The Genesis Institution" class="btn-primary">Get involved</a>
+        <a href="#research" class="btn-primary">Understand</a>
+      </div>
     </div>
   </header>
 
@@ -62,60 +66,85 @@
   </section>
 
   <section id="research">
-    <div class="container">
+    <div class="container container-wide">
       <div class="section-label">Research</div>
       <h2>Year-One agenda</h2>
       <p class="section-intro">Three programs. Five tracks. All oriented toward a single question: what does it take to protect and enrich life on Earth?</p>
 
-      <div class="programs">
+      <div class="program-preview" role="tablist" aria-label="Programs">
+        <button class="preview-pill is-active" data-target="program-a" role="tab" aria-selected="true">
+          <span class="preview-tag">A</span> Political Security
+        </button>
+        <button class="preview-pill" data-target="program-b" role="tab" aria-selected="false">
+          <span class="preview-tag">B</span> Environmental Security
+        </button>
+        <button class="preview-pill" data-target="program-c" role="tab" aria-selected="false">
+          <span class="preview-tag">C</span> Compound Risk
+        </button>
+      </div>
 
-        <div class="program">
-          <div class="program-header">
-            <span class="program-tag">Program A</span>
-            <h3>Political Security</h3>
-          </div>
-          <div class="tracks">
-            <div class="track">
-              <h4>Structural resistance to fascism</h4>
-              <p>Conditions under which democratic societies preserve institutions against authoritarian capture — judicial independence, civil-society durability, comparative cases.</p>
+      <div class="carousel-wrap">
+        <button class="carousel-arrow carousel-arrow-left" aria-label="Previous program" disabled>&#8249;</button>
+        <div class="programs" id="programs-carousel">
+
+          <div class="program" id="program-a">
+            <div class="program-media has-photo" aria-hidden="true"></div>
+            <div class="program-body">
+              <div class="program-header">
+                <span class="program-tag">Program A</span>
+                <h3>Political Security</h3>
+              </div>
+              <div class="tracks">
+                <div class="track">
+                  <h4>Structural resistance to fascism</h4>
+                  <p>Conditions under which democratic societies preserve institutions against authoritarian capture — judicial independence, civil-society durability, comparative cases.</p>
+                </div>
+                <div class="track">
+                  <h4>Direct democracy — feasibility and infrastructure</h4>
+                  <p>What scales, what doesn't, what's been tried. Sortition, citizens' assemblies, liquid democracy. Phase I maps the terrain; Phase II builds the blueprints.</p>
+                </div>
+              </div>
             </div>
-            <div class="track">
-              <h4>Direct democracy — feasibility and infrastructure</h4>
-              <p>What scales, what doesn't, what's been tried. Sortition, citizens' assemblies, liquid democracy. Phase I maps the terrain; Phase II builds the blueprints.</p>
+          </div>
+
+          <div class="program" id="program-b">
+            <div class="program-media has-photo" aria-hidden="true"></div>
+            <div class="program-body">
+              <div class="program-header">
+                <span class="program-tag">Program B</span>
+                <h3>Environmental Security</h3>
+              </div>
+              <div class="tracks">
+                <div class="track">
+                  <h4>Multi-vector environmental remediation</h4>
+                  <p>A mapped landscape of credible interventions across atmospheric, soil, marine, freshwater, and biospheric vectors — with cost, scale, and risk profiles.</p>
+                </div>
+                <div class="track">
+                  <h4>Desert terraforming as carbon capture</h4>
+                  <p>Rigorous feasibility study of land remediation and carbon sequestration through large-scale desert restoration. Honest about what the carbon math does and doesn't support.</p>
+                </div>
+              </div>
             </div>
           </div>
+
+          <div class="program program-featured" id="program-c">
+            <div class="program-media has-photo" aria-hidden="true"></div>
+            <div class="program-body">
+              <div class="program-header">
+                <span class="program-tag">Program C</span>
+                <h3>Compound Risk</h3>
+              </div>
+              <div class="tracks">
+                <div class="track">
+                  <h4>Climate shock and the authoritarian opening</h4>
+                  <p>Genesis's signature question. How environmental shocks — drought, displacement, food insecurity — create the conditions in which authoritarian movements consolidate power, and what democratic preparation can close that window before the crisis arrives.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
-
-        <div class="program">
-          <div class="program-header">
-            <span class="program-tag">Program B</span>
-            <h3>Environmental Security</h3>
-          </div>
-          <div class="tracks">
-            <div class="track">
-              <h4>Multi-vector environmental remediation</h4>
-              <p>A mapped landscape of credible interventions across atmospheric, soil, marine, freshwater, and biospheric vectors — with cost, scale, and risk profiles.</p>
-            </div>
-            <div class="track">
-              <h4>Desert terraforming as carbon capture</h4>
-              <p>Rigorous feasibility study of land remediation and carbon sequestration through large-scale desert restoration. Honest about what the carbon math does and doesn't support.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="program program-featured">
-          <div class="program-header">
-            <span class="program-tag">Program C</span>
-            <h3>Compound Risk</h3>
-          </div>
-          <div class="tracks">
-            <div class="track">
-              <h4>Climate shock and the authoritarian opening</h4>
-              <p>Genesis's signature question. How environmental shocks — drought, displacement, food insecurity — create the conditions in which authoritarian movements consolidate power, and what democratic preparation can close that window before the crisis arrives.</p>
-            </div>
-          </div>
-        </div>
-
+        <button class="carousel-arrow carousel-arrow-right" aria-label="Next program">&#8250;</button>
       </div>
     </div>
   </section>
@@ -157,6 +186,109 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var carousel = document.getElementById('programs-carousel');
+      var pills = Array.prototype.slice.call(document.querySelectorAll('.preview-pill'));
+      var prevBtn = document.querySelector('.carousel-arrow-left');
+      var nextBtn = document.querySelector('.carousel-arrow-right');
+      if (!carousel || !pills.length) return;
+
+      var programs = pills.map(function (pill) {
+        return document.getElementById(pill.dataset.target);
+      });
+
+      var activeIndex = 0;
+
+      function setActive(id) {
+        var idx = programs.findIndex(function (program) {
+          return program && program.id === id;
+        });
+        if (idx !== -1) activeIndex = idx;
+        pills.forEach(function (pill) {
+          var active = pill.dataset.target === id;
+          pill.classList.toggle('is-active', active);
+          pill.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        updateArrows();
+      }
+
+      pills.forEach(function (pill) {
+        pill.addEventListener('click', function () {
+          var target = document.getElementById(pill.dataset.target);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+          }
+        });
+      });
+
+      function updateArrows() {
+        prevBtn.disabled = activeIndex <= 0;
+        nextBtn.disabled = activeIndex >= programs.length - 1;
+      }
+
+      function currentIndex() {
+        var carouselLeft = carousel.getBoundingClientRect().left;
+        var target = carousel.scrollLeft;
+        var closest = 0;
+        var closestDiff = Infinity;
+        programs.forEach(function (program, i) {
+          if (!program) return;
+          var position = program.getBoundingClientRect().left - carouselLeft + carousel.scrollLeft;
+          var diff = Math.abs(position - target);
+          if (diff < closestDiff) {
+            closestDiff = diff;
+            closest = i;
+          }
+        });
+        return closest;
+      }
+
+      function goToCard(direction) {
+        var next = currentIndex() + direction;
+        next = Math.max(0, Math.min(programs.length - 1, next));
+        var target = programs[next];
+        if (target) {
+          activeIndex = next;
+          updateArrows();
+          target.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+        }
+      }
+
+      prevBtn.addEventListener('click', function () { goToCard(-1); });
+      nextBtn.addEventListener('click', function () { goToCard(1); });
+      updateArrows();
+
+      function carouselInView() {
+        var rect = carousel.getBoundingClientRect();
+        return rect.bottom > 0 && rect.top < (window.innerHeight || document.documentElement.clientHeight);
+      }
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+        var tag = document.activeElement && document.activeElement.tagName;
+        if (tag === 'INPUT' || tag === 'TEXTAREA' || (document.activeElement && document.activeElement.isContentEditable)) return;
+        if (!carouselInView()) return;
+        e.preventDefault();
+        goToCard(e.key === 'ArrowLeft' ? -1 : 1);
+      });
+
+      carousel.setAttribute('tabindex', '0');
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
+            setActive(entry.target.id);
+          }
+        });
+      }, { root: carousel, threshold: [0.6] });
+
+      programs.forEach(function (program) {
+        if (program) observer.observe(program);
+      });
+    })();
+  </script>
 
 </body>
 </html>

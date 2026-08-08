@@ -20,6 +20,18 @@ body {
   color: var(--black);
   font-size: 17px;
   line-height: 1.65;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: url('rock-formation.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 /* NAV */
@@ -32,7 +44,7 @@ nav {
   justify-content: space-between;
   padding: 0 2.5rem;
   height: 60px;
-  background: rgba(250,250,250,0.92);
+  background: rgba(250,250,250,0.75);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
@@ -74,7 +86,7 @@ header {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: var(--black);
+  background: rgba(10,10,10,0.6);
   color: var(--white);
   padding: 8rem 2.5rem 5rem;
 }
@@ -109,6 +121,12 @@ header h1 {
   line-height: 1.7;
 }
 
+.header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 /* BUTTONS */
 .btn-primary {
   display: inline-block;
@@ -132,13 +150,23 @@ header h1 {
   padding: 0 2.5rem;
 }
 
+.container-wide {
+  max-width: 1320px;
+}
+
 /* SECTIONS */
 section {
   padding: 7rem 0;
+  background: rgba(250,250,250,0.85);
 }
 
 section:nth-child(even) {
-  background: var(--off-white);
+  background: rgba(244,243,239,0.88);
+}
+
+#about,
+#donate {
+  background: var(--white);
 }
 
 .section-label {
@@ -210,20 +238,206 @@ section h2 {
   line-height: 1.65;
 }
 
-/* PROGRAMS */
+/* PROGRAM PREVIEW BAR */
+.program-preview {
+  display: flex;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 0.85rem;
+}
+
+.preview-pill {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: inherit;
+  font-size: 0.82rem;
+  color: var(--mid);
+  background: rgba(250,250,250,0.85);
+  border: none;
+  border-right: 1px solid var(--border);
+  border-radius: 0;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.2s, background 0.2s;
+}
+
+.preview-pill:last-child {
+  border-right: none;
+}
+
+.preview-pill:hover {
+  color: var(--black);
+  background: rgba(255,255,255,0.95);
+}
+
+.preview-pill.is-active {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.preview-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+.preview-pill.is-active .preview-tag {
+  color: rgba(255,255,255,0.7);
+}
+
+/* PROGRAMS CAROUSEL */
+.carousel-wrap {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 0.75rem;
+}
+
 .programs {
   display: flex;
-  flex-direction: column;
-  gap: 1.5px;
-  background: var(--border);
+  flex-direction: row;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 0.25rem 0.25rem 1.25rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-light) var(--off-white);
+}
+
+.programs::-webkit-scrollbar { height: 8px; }
+.programs::-webkit-scrollbar-track { background: var(--off-white); border-radius: 4px; }
+.programs::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+.programs::-webkit-scrollbar-thumb:hover { background: var(--accent-light); }
+
+.program {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  display: grid;
+  grid-template-columns: minmax(300px, 42%) 1fr;
+  gap: 3.5rem;
+  align-items: stretch;
+  background: rgba(250,250,250,0.92);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
 }
 
-.program {
-  background: var(--white);
-  padding: 2.5rem;
+.program-media {
+  background: linear-gradient(135deg, var(--off-white) 0%, var(--border) 100%);
+  min-height: 560px;
+  position: relative;
+}
+
+.program-media::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(45deg, transparent 48%, var(--mid) 48%, var(--mid) 52%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, var(--mid) 48%, var(--mid) 52%, transparent 52%);
+  background-size: 44px 44px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 88px;
+  height: 88px;
+  margin: auto;
+  opacity: 0.35;
+}
+
+.program-featured .program-media {
+  background: linear-gradient(135deg, #e8f2ed 0%, #cfe3da 100%);
+}
+
+/* PROGRAM PHOTOS */
+.program-media.has-photo {
+  background-size: cover;
+  background-position: center;
+}
+
+.program-media.has-photo::before {
+  display: none;
+}
+
+.program-media.has-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,10,10,0) 55%, rgba(10,10,10,0.35) 100%);
+}
+
+#program-a .program-media {
+  background-image: url('program-political-security.jpg');
+}
+
+#program-b .program-media {
+  background-image: url('program-environmental-security.jpg?v=2');
+  background-position: center;
+}
+
+#program-c .program-media {
+  background-image: url('program-compound-risk.jpg');
+}
+
+.program-body {
+  padding: 4rem 4rem 4rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.program-body .program-header h3 {
+  font-size: 1.6rem;
+}
+
+.program-body .tracks {
+  gap: 2.5rem;
+}
+
+.program-body .track h4 {
+  font-size: 1.1rem;
+}
+
+.program-body .track p {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.carousel-arrow {
+  flex: 0 0 auto;
+  width: 3rem;
+  align-self: stretch;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(250,250,250,0.85);
+  color: var(--black);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, color 0.2s, opacity 0.2s, background 0.2s;
+}
+
+.carousel-arrow:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.carousel-arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
 }
 
 .program-featured {
@@ -323,7 +537,7 @@ section h2 {
 
 /* FOOTER */
 footer {
-  background: var(--black);
+  background: rgba(10,10,10,0.75);
   color: #9ca3af;
   padding: 3rem 0;
 }
@@ -365,5 +579,12 @@ footer {
   .pillars { grid-template-columns: 1fr; }
   .donate-tiers { grid-template-columns: 1fr; }
   .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
-  .program { padding: 2rem 1.5rem; }
+  .program { grid-template-columns: 1fr; }
+  .program-media { min-height: 220px; }
+  .program-body { padding: 1.75rem 1.5rem; }
+  .program-body .program-header h3 { font-size: 1.3rem; }
+  .carousel-arrow { display: none; }
+  .program-preview { flex-direction: column; }
+  .preview-pill { font-size: 0.85rem; padding: 0.65rem 1rem; border-right: none; border-bottom: 1px solid var(--border); }
+  .preview-pill:last-child { border-bottom: none; }
 }
