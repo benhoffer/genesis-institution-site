@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Genesis Institution</title>
-  <link rel="stylesheet" href="style.css?v=14" />
+  <link rel="stylesheet" href="style.css?v=27" />
   <link rel="icon" type="image/png" href="favicon.png" />
 </head>
 <body>
@@ -13,6 +13,7 @@
     <span class="nav-name">The Genesis Institution</span>
     <div class="nav-links">
       <a href="#about">About</a>
+      <a href="#team">Team</a>
       <a href="#research">Research</a>
       <a href="#donate" class="nav-donate">Donate</a>
     </div>
@@ -24,15 +25,15 @@
       <h1>A say in how the world is governed.<br>A world worth governing.</h1>
       <p class="header-sub">The Genesis Institution is a research nonprofit working at the intersection of political and environmental security.</p>
       <div class="header-actions">
+        <a href="#about" class="btn-primary">Understand</a>
         <a href="#donate" class="btn-primary">Support our work</a>
         <a href="mailto:benhoffer0@gmail.com?subject=Getting involved with The Genesis Institution" class="btn-primary">Get involved</a>
-        <a href="#research" class="btn-primary">Understand</a>
       </div>
     </div>
   </header>
 
   <section id="about">
-    <div class="container">
+    <div class="section-fill"><div class="container">
       <div class="section-label">About</div>
       <h2>Why Genesis exists</h2>
       <div class="two-col">
@@ -44,6 +45,11 @@
           <p>We conduct original research, publish accessible analysis, and build the infrastructure for those determined to protect and enrich life on Earth.</p>
           <p>We are a forming Massachusetts 501(c)(3) nonprofit, founded by researchers with deep roots in political theory, security studies, and environmental science.</p>
         </div>
+      </div>
+
+      <div class="urgency-callout">
+        <div class="urgency-topic" id="urgency-topic">Urgency</div>
+        <p class="urgency-text" id="urgency-text"></p>
       </div>
 
       <div class="pillars">
@@ -64,10 +70,41 @@
         </div>
       </div>
     </div>
+    </div>
+  </section>
+
+  <section id="team">
+    <div class="section-fill"><div class="container">
+      <div class="section-label">Team</div>
+      <h2>Who's building this</h2>
+      <p class="section-intro">A small founding team with backgrounds spanning political theory, security studies, and environmental science.</p>
+
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="team-avatar" aria-hidden="true">BH</div>
+          <h3>Ben Hoffer</h3>
+          <div class="team-role">Executive Director</div>
+          <p>Leads Genesis's research agenda and organizational strategy, with a background in political theory and democratic institutions.</p>
+        </div>
+        <div class="team-member">
+          <div class="team-avatar" aria-hidden="true">◈</div>
+          <h3>Research Lead, Political Security</h3>
+          <div class="team-role">Position open</div>
+          <p>Directs work on democratic resilience and structural defenses against authoritarian capture.</p>
+        </div>
+        <div class="team-member">
+          <div class="team-avatar" aria-hidden="true">◈</div>
+          <h3>Research Lead, Environmental Security</h3>
+          <div class="team-role">Position open</div>
+          <p>Directs work on climate stability, biosphere integrity, and remediation at scale.</p>
+        </div>
+      </div>
+    </div>
+    </div>
   </section>
 
   <section id="research">
-    <div class="container container-wide">
+    <div class="section-fill"><div class="container container-wide">
       <div class="section-label">Research</div>
       <h2>Year-One agenda</h2>
       <p class="section-intro">Three programs. Five tracks. All oriented toward a single question: what does it take to protect and enrich life on Earth?</p>
@@ -148,10 +185,11 @@
         <button class="carousel-arrow carousel-arrow-right" aria-label="Next program">&#8250;</button>
       </div>
     </div>
+    </div>
   </section>
 
   <section id="donate">
-    <div class="container donate-container">
+    <div class="section-fill"><div class="container donate-container">
       <div class="section-label">Support</div>
       <h2>Support the work</h2>
       <p>Every contribution — at any level — helps build the research infrastructure this moment demands. The Genesis Institution is forming as a Massachusetts 501(c)(3). Gifts are expected to be tax-deductible retroactive to our formation date once IRS recognition is received.</p>
@@ -217,10 +255,11 @@
 
       </div>
     </div>
+    </div>
   </section>
 
   <footer>
-    <div class="container footer-inner">
+    <div class="section-fill"><div class="container footer-inner">
       <div class="footer-left">
         <div class="footer-name">The Genesis Institution</div>
         <div class="footer-sub">A 501(c)(3) research nonprofit · Massachusetts</div>
@@ -228,6 +267,7 @@
       <div class="footer-right">
         <a href="mailto:benhoffer0@gmail.com">benhoffer0@gmail.com</a>
       </div>
+    </div>
     </div>
   </footer>
 
@@ -331,6 +371,162 @@
       programs.forEach(function (program) {
         if (program) observer.observe(program);
       });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var textEl = document.getElementById('urgency-text');
+      var topicEl = document.getElementById('urgency-topic');
+      if (!textEl || !topicEl) return;
+
+      var CONTENT = {
+        urgency: {
+          label: 'Urgency',
+          segments: [
+            { text: 'The ' },
+            { text: 'climate crisis', link: 'climate-crisis' },
+            { text: ' is no longer a future risk — it is a present, accelerating emergency. Every fraction of a degree narrows the window for stable, democratic societies to adapt. The longer meaningful action is delayed, the more likely climate shocks are to arrive as sudden crises rather than manageable transitions — and crises are exactly the conditions ' },
+            { text: 'authoritarian movements', link: 'authoritarian-opening' },
+            { text: ' exploit. Genesis exists because that window will not stay open on its own.' }
+          ]
+        },
+        'climate-crisis': {
+          label: 'Climate Crisis',
+          segments: [
+            { text: 'The climate crisis describes the destabilization of Earth’s climate system beyond the range in which human civilization developed — driven overwhelmingly by ' },
+            { text: 'greenhouse gas emissions', link: 'emissions' },
+            { text: '. Its effects compound: rising seas, extreme heat, and disrupted agriculture converge to threaten the basic conditions life depends on. Left unaddressed, it becomes an ' },
+            { text: 'urgency', link: 'urgency' },
+            { text: ' no institution can outrun.' }
+          ]
+        },
+        emissions: {
+          label: 'Emissions',
+          segments: [
+            { text: 'Greenhouse gas emissions — chiefly carbon dioxide and methane from fossil fuels, agriculture, and industry — trap heat in the atmosphere and drive the ' },
+            { text: 'climate crisis', link: 'climate-crisis' },
+            { text: ' forward. Reducing them at the pace science demands remains the central unresolved test of this century — and the reason it carries such ' },
+            { text: 'urgency', link: 'urgency' },
+            { text: '.' }
+          ]
+        },
+        'authoritarian-opening': {
+          label: 'Authoritarian Opening',
+          segments: [
+            { text: 'Authoritarian movements gain ground fastest in moments of instability — when institutions falter and fear outpaces trust. Climate shocks, from drought to displacement, create exactly this instability, handing the ambitious a pretext to concentrate power. It is the same ' },
+            { text: 'climate crisis', link: 'climate-crisis' },
+            { text: ' that threatens the planet — and guarding against that opening carries its own ' },
+            { text: 'urgency', link: 'urgency' },
+            { text: '.' }
+          ]
+        }
+      };
+
+      function flatten(segments) {
+        return segments.map(function (s) { return s.text; }).join('');
+      }
+
+      var CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      function randomChar() {
+        return CHARS[Math.floor(Math.random() * CHARS.length)];
+      }
+
+      function Scrambler(el) {
+        this.el = el;
+        this.frame = 0;
+        this.queue = [];
+        this.frameRequest = null;
+        this.update = this.update.bind(this);
+      }
+
+      Scrambler.prototype.setText = function (newText) {
+        var oldText = this.el.textContent;
+        var length = Math.max(oldText.length, newText.length);
+        var resolvePromise;
+        var promise = new Promise(function (resolve) { resolvePromise = resolve; });
+        this.resolve = resolvePromise;
+        this.queue = [];
+        for (var i = 0; i < length; i++) {
+          var from = oldText[i] || '';
+          var to = newText[i] || '';
+          var start = Math.floor(Math.random() * 24);
+          var end = start + 12 + Math.floor(Math.random() * 18);
+          this.queue.push({ from: from, to: to, start: start, end: end, char: null });
+        }
+        if (this.frameRequest) cancelAnimationFrame(this.frameRequest);
+        this.frame = 0;
+        this.update();
+        return promise;
+      };
+
+      Scrambler.prototype.update = function () {
+        var output = '';
+        var complete = 0;
+        for (var i = 0; i < this.queue.length; i++) {
+          var item = this.queue[i];
+          if (this.frame >= item.end) {
+            complete++;
+            output += item.to;
+          } else if (this.frame >= item.start) {
+            if (!item.char || Math.random() < 0.3) item.char = randomChar();
+            output += '<span class="scramble-noise">' + item.char + '</span>';
+          } else {
+            output += item.from;
+          }
+        }
+        this.el.innerHTML = output;
+        if (complete === this.queue.length) {
+          this.resolve();
+        } else {
+          this.frameRequest = requestAnimationFrame(this.update);
+          this.frame++;
+        }
+      };
+
+      var scrambler = new Scrambler(textEl);
+      var currentId = 'urgency';
+      var transitioning = false;
+
+      function render(id) {
+        var node = CONTENT[id];
+        textEl.innerHTML = node.segments.map(function (seg) {
+          if (seg.link) {
+            return '<button type="button" class="scramble-link" data-target="' + seg.link + '">' + seg.text + '</button>';
+          }
+          return seg.text.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+        }).join('');
+      }
+
+      var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function goTo(id) {
+        if (transitioning || id === currentId || !CONTENT[id]) return;
+        if (prefersReducedMotion) {
+          currentId = id;
+          render(id);
+          topicEl.textContent = CONTENT[id].label;
+          return;
+        }
+        transitioning = true;
+        var targetText = flatten(CONTENT[id].segments);
+        topicEl.classList.add('is-fading');
+        scrambler.setText(targetText).then(function () {
+          currentId = id;
+          render(id);
+          topicEl.textContent = CONTENT[id].label;
+          topicEl.classList.remove('is-fading');
+          transitioning = false;
+        });
+      }
+
+      textEl.addEventListener('click', function (e) {
+        var btn = e.target.closest && e.target.closest('.scramble-link');
+        if (!btn) return;
+        goTo(btn.dataset.target);
+      });
+
+      render('urgency');
     })();
   </script>
 
